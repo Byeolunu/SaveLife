@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+
+body {
+    @apply font-poppins;
+}

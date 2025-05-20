@@ -1,0 +1,14 @@
+{
+    "git.ignoreLimitWarning": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "python": false,
+        "css": false,
+        "html": true,
+        "php": false,
+        "java": true
+    }
+}
