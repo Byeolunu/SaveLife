@@ -4,12 +4,10 @@ import { motion } from "framer-motion";
 import { IoCall } from "react-icons/io5";
 import { FaHourglassEnd } from "react-icons/fa";
 import { MdMarkEmailUnread } from "react-icons/md";
-
 const ContactUsPage = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -19,7 +17,6 @@ const ContactUsPage = () => {
     e.preventDefault();
     setSuccessMessage("");
     setErrorMessage("");
-
     try {
       const response = await axios.post("http://localhost:8000/api/submit/", formData);
       if (response.status === 201) {

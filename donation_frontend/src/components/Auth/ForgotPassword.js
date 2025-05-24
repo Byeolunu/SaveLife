@@ -7,7 +7,6 @@ const ForgotPassword = () => {
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setMessage('');
@@ -16,8 +15,6 @@ const ForgotPassword = () => {
         try {
             const response = await axios.post('http://localhost:8000/api/password-reset/', { email });
             setMessage(response.data.message);
-
-            // Redirect to Reset Password page with the reset link
             navigate(response.data.reset_link);
         } catch (err) {
             setError(err.response?.data?.error || 'An error occurred.');

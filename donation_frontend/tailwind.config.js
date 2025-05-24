@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'], // Add Poppins as a custom font
+        poppins: ['Poppins', 'sans-serif'], 
       },
       animation: {
         'fade-in': 'fadeIn 1s ease-in-out',

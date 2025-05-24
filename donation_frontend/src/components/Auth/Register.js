@@ -9,7 +9,7 @@ const Register = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        user_type: '', // User type: 'user' or 'org'
+        user_type: '', 
     });
 
     const [error, setError] = useState('');
@@ -20,28 +20,20 @@ const Register = () => {
         animate: { opacity: 1, x: 0 },
         exit: { opacity: 0, x: '100vw' },
     };
-
-    // Handle input changes
     const handleChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
     };
-
-    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         setSuccess(false);
-
-        // Validate passwords
         if (formData.password !== formData.confirmPassword) {
             setError('Les mots de passe ne correspondent pas.');
             return;
         }
-
-        // Validate user type
         if (!formData.user_type) {
             setError('Veuillez sélectionner un type d’utilisateur.');
             return;
@@ -65,13 +57,12 @@ const Register = () => {
                     user_type: '',
                 });
 
-                // Redirect to homepage after 2 seconds
+                
                 setTimeout(() => {
                     window.location.href = `/?user=${encodeURIComponent(formData.email)}`;
                 }, 2000);
             }
         } catch (err) {
-            // Display backend error message if available
             if (err.response && err.response.data && err.response.data.detail) {
                 setError(err.response.data.detail);
             } else {
@@ -98,11 +89,7 @@ const Register = () => {
                         Inscription réussie ! Redirection vers la page d’accueil...
                     </p>
                 )}
-                {/* <motion.div
-                    initial={{ x: -100, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ type: "spring", stiffness: 50 }}
-                >    */}
+                
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label htmlFor="username" className="block text-gray-700 font-medium mb-1">

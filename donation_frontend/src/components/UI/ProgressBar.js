@@ -8,5 +8,4 @@ const ProgressBar = ({ progress }) => {
     </div>
   );
 };
-
 export default ProgressBar;

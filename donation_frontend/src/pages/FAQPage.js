@@ -3,11 +3,9 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import { motion } from "framer-motion";
 const FAQPage = () => {
   const [openQuestion, setOpenQuestion] = useState(null);
-
   const toggleQuestion = (index) => {
     setOpenQuestion(openQuestion === index ? null : index);
   };
-
   const faqs = [
     {
       question: "How Can I Make a Donation?",
@@ -69,5 +67,4 @@ const FAQPage = () => {
     </div>
   );
 };
-
 export default FAQPage;

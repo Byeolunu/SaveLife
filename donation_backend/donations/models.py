@@ -15,11 +15,11 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=15, blank=True, null=True)
     address = models.TextField(blank=True, null=True)
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+    description=models.CharField(max_length=100 ,null=True)
 
     def __str__(self):
         return self.username
     
-
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
@@ -41,10 +41,6 @@ class Campaign(models.Model):
     image = models.ImageField(upload_to='campaign_images/', blank=True, null=True)
 
     def update_active(self):
-        """
-        Update `is_active` based on current time and valid date logic.
-        Campaigns with ends_date earlier than start_date or equal to it are marked inactive.
-        """
         current_time = now()
         if self.ends_date <= self.start_date:
             return False
@@ -54,17 +50,11 @@ class Campaign(models.Model):
             return False
 
     def save(self, *args, **kwargs):
-        """
-        Override the save method to ensure `is_active` is updated automatically.
-        """
         self.is_active = self.update_active()  
         super().save(*args, **kwargs)
 
     @property
     def current_amount(self):
-        """
-        Calculate the total donations for this campaign.
-        """
         return self.donations_received.aggregate(total=Sum('amount'))['total'] or 0
 
     def __str__(self):

@@ -30,7 +30,7 @@ class InspiringStoriesAdmin(admin.ModelAdmin):
 class NewsletterSubscriptionAdmin(admin.ModelAdmin):
     list_display = ['email', 'subscribed_at']    
 
-# Register all models
+
 admin.site.register(User, UserAdmin)
 admin.site.register(Campaign, CampaignAdmin)
 admin.site.register(Donation, DonationAdmin)

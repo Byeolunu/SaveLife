@@ -14,7 +14,6 @@ const CampaignCard = ({ campaign, onSelect, isOwner, onUpdate, userType }) => {
       }
     }
   };
-
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col h-full">
       {campaign.image && (
@@ -74,5 +73,4 @@ const CampaignCard = ({ campaign, onSelect, isOwner, onUpdate, userType }) => {
     </div>
   );
 };
-
 export default CampaignCard;

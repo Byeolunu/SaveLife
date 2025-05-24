@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const CampaignDetail = () => {
-    const { id } = useParams(); // Récupère l'ID de la campagne depuis l'URL
+    const { id } = useParams(); 
     const [campaign, setCampaign] = useState(null);
     const [error, setError] = useState('');
 

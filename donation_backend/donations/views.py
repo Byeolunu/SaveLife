@@ -1,5 +1,3 @@
-
-
 from rest_framework import generics, permissions, status, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -19,6 +17,7 @@ from rest_framework.generics import ListAPIView, CreateAPIView
 from django.utils.crypto import get_random_string
 from django.http import HttpResponse
 
+
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
@@ -33,7 +32,7 @@ User = get_user_model()
 class UserListView(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated] 
+    permission_classes = [permissions.AllowAny] 
 
 class UserDeleteView(APIView):
     permission_classes = [permissions.IsAdminUser]  
@@ -226,7 +225,6 @@ def home_data(request):
 
 class ContactCreateAPIView(APIView):
     def post(self, request, *args, **kwargs):
-        # Traitez les données ici
         return Response({"message": "Contact created successfully"}, status=status.HTTP_201_CREATED)
 
 class InspiringStoriesDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -274,28 +272,8 @@ def change_password(request):
     user.save()
     return Response({'message': 'Password updated successfully.'}, status=status.HTTP_200_OK)
 
-@api_view(['PUT'])
-@permission_classes([IsAuthenticated])
-def update_settings(request):
-    user = request.user
-    # Your logic for updating settings
-    return Response({"message": "Settings updated successfully."}, status=status.HTTP_200_OK)
 
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def get_settings(request):
-    user = request.user
-    # Your logic for fetching settings
-    return Response({"message": "Settings fetched successfully."}, status=status.HTTP_200_OK)
-
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def get_campaign_progress(request):
-    user = request.user
-    # Your logic for fetching campaign progress
-    return Response({"message": "Campaign progress fetched successfully."}, status=status.HTTP_200_OK)
-
-
+    
 
 
 

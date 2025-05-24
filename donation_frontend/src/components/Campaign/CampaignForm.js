@@ -27,10 +27,8 @@ const CampaignForm = ({ onSubmitSuccess, initialData = null }) => {
 
         try {
             if (initialData) {
-                // Update existing campaign
                 await axios.put(`/api/campaigns/${initialData.id}/`, formData);
             } else {
-                // Create new campaign
                 await axios.post('/api/campaigns/', formData);
             }
             setSuccess(true);
@@ -105,5 +103,4 @@ const CampaignForm = ({ onSubmitSuccess, initialData = null }) => {
         </div>
     );
 };
-
 export default CampaignForm;

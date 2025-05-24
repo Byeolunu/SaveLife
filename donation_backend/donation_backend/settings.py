@@ -34,13 +34,6 @@ MIDDLEWARE = [
 ]
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'mouftahnouhaila@gmail.com'  # Replace with your email
-# EMAIL_HOST_PASSWORD = ''  # Replace with your email password or app password'
-# EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')  # Directory to save emails
 ROOT_URLCONF = 'donation_backend.urls'
 
 TEMPLATES = [
@@ -109,5 +102,5 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-MEDIA_URL = '/media/'  # URL to access media files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Directory to store uploaded files
+MEDIA_URL = '/media/'  
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 

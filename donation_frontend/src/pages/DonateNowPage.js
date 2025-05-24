@@ -8,7 +8,6 @@ const DonateNowPage = () => {
   const [campaigns, setCampaigns] = useState([]);
   const [selectedCampaign, setSelectedCampaign] = useState(null);
   const { user } = useAuth();
-
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
@@ -40,8 +39,6 @@ const DonateNowPage = () => {
       console.log('Donation successful:', response.data);
       alert('Donation successful!');
       setSelectedCampaign(null);
-  
-      // Refresh campaigns to update progress
       const campaignsResponse = await api.get('campaigns/');
       setCampaigns(campaignsResponse.data);
     } catch (error) {
@@ -83,5 +80,4 @@ const DonateNowPage = () => {
     </div>
   );
 };
-
 export default DonateNowPage;

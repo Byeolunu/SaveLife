@@ -11,7 +11,6 @@ const ResetPassword = () => {
     const [newPassword, setNewPassword] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setMessage('');

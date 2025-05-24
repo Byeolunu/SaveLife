@@ -1,4 +1,3 @@
-import React from 'react';
 import CampaignCard from './CampaignCard';
 
 const CampaignList = ({ campaigns, onSelectCampaign, isOwner, onUpdate, userType }) => {
@@ -13,7 +12,7 @@ const CampaignList = ({ campaigns, onSelectCampaign, isOwner, onUpdate, userType
           key={campaign.id}
           campaign={campaign}
           onSelect={onSelectCampaign}
-          isOwner={isOwner}
+          isOwner={typeof isOwner === 'function' ? isOwner(campaign) : isOwner}
           onUpdate={onUpdate}
           userType={userType}
         />

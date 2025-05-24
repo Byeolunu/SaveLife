@@ -1,6 +1,4 @@
-
-
-import React, { useEffect, useState } from 'react';
+import{ useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import bgImage from '../assets/images/bg.png';
 import api from '../services/api';
@@ -197,5 +195,4 @@ const HomePage = () => {
     </div>
   );
 };
-
 export default HomePage;

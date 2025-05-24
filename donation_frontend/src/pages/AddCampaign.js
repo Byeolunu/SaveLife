@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import api from '../services/api'; // Axios instance for API calls
+import api from '../services/api';
 import { motion } from 'framer-motion';
 const AddCampaign = () => {
   const [formData, setFormData] = useState({
@@ -9,9 +9,8 @@ const AddCampaign = () => {
     start_date: '',
     ends_date: '',
   });
-  const [image, setImage] = useState(null); // State for the image file
+  const [image, setImage] = useState(null); 
   const [message, setMessage] = useState('');
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -26,12 +25,10 @@ const AddCampaign = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate dates
     if (new Date(formData.ends_date) <= new Date(formData.start_date)) {
       setMessage('End date must be after the start date.');
       return;
     }
-
     try {
       const data = new FormData();
       data.append('title', formData.title);
@@ -42,17 +39,13 @@ const AddCampaign = () => {
       if (image) {
         data.append('image', image);
       }
-
       const response = await api.post('campaigns/create/', data, {
         headers: {
-          'Content-Type': 'multipart/form-data', // Set the content type for file uploads
+          'Content-Type': 'multipart/form-data',
         },
       });
-
       setMessage('Campaign created successfully!');
       console.log('Response:', response.data);
-
-      // Reset form
       setFormData({
         title: '',
         description: '',
@@ -174,5 +167,4 @@ const AddCampaign = () => {
     </div>
   );
 };
-
 export default AddCampaign;

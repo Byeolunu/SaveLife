@@ -1,4 +1,3 @@
-
 from django.urls import path
 from .views import (
     CustomTokenObtainPairView, UserRegistrationView, UserProfileView,
@@ -6,7 +5,7 @@ from .views import (
     UserCampaignsView, UserListView, UserDeleteView, home_data, user_profile,
     logout_view, send_password_reset_email, ContactCreateAPIView,
     NewsletterSubscriptionAPIView, reset_password, create_campaign,InspiringListView,InspiringStoriesDetailView, change_password,
-    update_settings, get_campaign_progress, get_settings
+    
 )
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.conf import settings
@@ -40,9 +39,6 @@ urlpatterns = [
     path('newsletter/subscribe/', NewsletterSubscriptionAPIView.as_view(), name='newsletter-subscribe'),
     path('inspiring-stories/<int:pk>/',InspiringStoriesDetailView.as_view(),name='inspiring-stories-detail'),
     path('inspiring-stories/', InspiringListView.as_view(), name='inspiring-stories-list'),
-    path('settings/', get_settings, name='get-settings'),
-    path('settings/update/', update_settings, name='update-settings'),
-    path('settings/campaign-progress/', get_campaign_progress, name='campaign-progress'),
 ]
 
 if settings.DEBUG:

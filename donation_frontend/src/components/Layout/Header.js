@@ -57,7 +57,7 @@ const Header = () => {
       transition={{ duration: 0.4 }}
       className="bg-white shadow-md"
     >
-        <header className="bg-white shadow-md">
+        <header className="bg-white shadow-md p-8">
             <div className="container mx-auto flex justify-between items-center p-4">
                 <div className="logo text-2xl font-bold text-blue-600">
                     <Link to="/">SaveLife</Link>
