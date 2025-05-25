@@ -46,30 +46,30 @@ const ContactUsPage = () => {
       </motion.header>
 
       <section className="px-8 mt-10">
-        <h2 className="text-3xl font-bold mb-4">Contact Information</h2>
+        <h2 className="text-3xl font-bold mb-4 text-pink-400">Contact Information</h2>
         <p>You can reach us by phone, email, or through the contact form below. <br />
           Our team is committed to responding to you as soon as possible.
         </p>
         <div className="flex justify-between mt-6 flex-wrap gap-6">
           <div className="text-center flex-1">
             <IoCall className="w-10 h-10 mx-auto mb-2" />
-            <h3 className="font-bold">Call Us</h3>
+            <h3 className="font-bold text-pink-300">Call Us</h3>
             <p>(+212) 672882380</p>
           </div>
           <div className="text-center flex-1">
             <FaHourglassEnd className="w-10 h-10 mx-auto mb-2" />
-            <h3 className="font-bold">Hours</h3>
+            <h3 className="font-bold text-pink-300">Hours</h3>
             <p>Mon-Sat<br />8:30-5:00</p>
           </div>
           <div className="text-center flex-1">
             <MdMarkEmailUnread className="w-10 h-10 mx-auto mb-2" />
-            <h3 className="font-bold">Email Us</h3>
+            <h3 className="font-bold text-pink-300">Email Us</h3>
             <p>savelife@gmail.com</p>
           </div>
         </div>
       </section>
 
-      <section className="mt-10 bg-blue-600 text-white p-8 rounded-lg mx-8">
+      <section className="mt-10 bg-blue-500 text-white p-8 rounded-lg mx-8">
         <h2 className="text-3xl font-bold mb-6">Get in Touch!</h2>
         {successMessage && <p className="text-green-300">{successMessage}</p>}
         {errorMessage && <p className="text-red-300">{errorMessage}</p>}
@@ -109,14 +109,14 @@ const ContactUsPage = () => {
               required
             />
           </div>
-          <button className="bg-black text-white px-6 py-3 rounded hover:bg-blue-900">
+          <button className="bg-pink-500 text-white px-6 py-3 rounded hover:bg-blue-900 rounded-2xl">
             Submit
           </button>
         </form>
       </section>
 
-      <section className="mt-12 px-8">
-        <h2 className="text-3xl font-bold mb-4">Our Location</h2>
+      <section className="mt-12 px-8 mb-10">
+        <h2 className="text-3xl font-bold mb-4 text-pink-400">Our Location</h2>
         <p className="mb-4">
           Visit us at our office located in Casablanca. Click on the map below to view our location on Google Maps.
         </p>

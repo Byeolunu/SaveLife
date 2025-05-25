@@ -1,5 +1,5 @@
 import os
-import sys
+import sys 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'donation_backend.settings')
     try:

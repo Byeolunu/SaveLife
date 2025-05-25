@@ -7,7 +7,7 @@ const CampaignCard = ({ campaign, onSelect, isOwner, onUpdate, userType }) => {
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this campaign?')) {
       try {
-        await api.delete(`campaigns/${campaign.id}/`);
+        await api(`campaigns/${campaign.id}/delete/`);
         onUpdate();
       } catch (error) {
         console.error('Error deleting campaign:', error);
@@ -24,34 +24,32 @@ const CampaignCard = ({ campaign, onSelect, isOwner, onUpdate, userType }) => {
         />
       )}
 
-      <div className="p-4 flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold mb-2">{campaign.title}</h3>
-        <p className="text-gray-600 mb-4 line-clamp-2">{campaign.description}</p>
-
-        <div className="mb-4">
-          <ProgressBar progress={(campaign.current_amount / campaign.goal) * 100} />
-          <div className="flex justify-between text-sm text-gray-600 mt-1">
-            <span>${campaign.current_amount} raised</span>
-            <span>${campaign.goal} goal</span>
+      <div className="p-4 flex flex-col flex-grow justify-between">
+        <div>
+          <h3 className="text-xl font-semibold mb-2 text-blue-500">{campaign.title}</h3>
+          <p className="text-gray-600 mb-4 line-clamp-2">{campaign.description}</p>
+          <div className="mb-4">
+            <ProgressBar progress={Math.min((campaign.current_amount / campaign.goal) * 100, 100)} />
+            <div className="flex justify-between text-sm text-gray-600 mt-1">
+              <span>${campaign.current_amount} raised</span>
+              <span>${campaign.goal} goal</span>
+            </div>
+          </div>
+          <div className="text-sm text-gray-500 mb-4">
+            <p>Starts on: {formatDate(campaign.start_date)}</p>
+            <p>Ends on: {formatDate(campaign.ends_date)}</p>
+            <p>Created by: {campaign.created_by_name}</p>
           </div>
         </div>
-
-        <div className="text-sm text-gray-500 mb-4">
-          <p>Starts on: {formatDate(campaign.start_date)}</p>
-          <p>Ends on: {formatDate(campaign.ends_date)}</p>
-          <p>Created by: {campaign.created_by_name}</p>
-        </div>
-
         <div className="flex space-x-2 mt-auto">
           {onSelect && userType !== 'org' && (
             <button
               onClick={() => onSelect(campaign)}
-              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex-1"
+              className="bg-pink-400 text-white px-4 py-2 rounded hover:bg-pink-700 flex-1"
             >
               Donate
             </button>
           )}
-
           {isOwner && (
             <>
               <button

@@ -47,7 +47,7 @@ const Layout = ({ children }) => {
               />
               <button
                 onClick={handleNewsletterSubmit}
-                className="bg-black text-white px-10 py-3 rounded hover:bg-gray-800"
+                className="bg-pink-500 text-white px-10 py-3 rounded hover:bg-gray-800"
               >
                 Submit Button
               </button>

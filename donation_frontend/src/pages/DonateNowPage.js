@@ -55,7 +55,7 @@ const DonateNowPage = () => {
       transition={{ duration: 0.8 }}
       className="shadow-md"
     >
-    <div className="container mx-auto px-4 py-8 ">
+    <div className="container mx-auto px-4 py-8 m-20">
       <h1 className="text-7xl p-6 font-bold text-center text-blue-700">Donate Now</h1>
       <p className="text-lg mb-10 text-center">Your contribution can make a difference!</p>
       

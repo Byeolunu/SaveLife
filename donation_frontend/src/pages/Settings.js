@@ -88,7 +88,7 @@ const Settings = () => {
         transition={{ duration: 0.8 }}
         className="shadow-md"
       >
-        <h1 className="text-5xl font-extrabold text-center text-blue-700 p-7">Welcome Back {username}</h1>
+        <h1 className="text-5xl font-extrabold text-center text-blue-700 p-7">Welcome Back <span className="text-pink-500">{username}</span></h1>
         <div className="flex overflow-x-auto pb-2 mb-6 border-b border-gray-200 hide-scrollbar">
           {tabs.map((tab) => (
             <button
@@ -331,13 +331,13 @@ const Settings = () => {
               </div>
             )}
             {activeTab === "preferences" && (
-  <div className="bg-blue-400 p-4 sm:p-6 rounded-lg shadow-lg">
-    <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-white">
+  <div className="p-4 sm:p-6 rounded-lg shadow-lg">
+    <h2 className="text-xl sm:text-2xl font-semibold  text-black mb-2">
       Donation Preferences
     </h2>
     <form className="space-y-4">
       <div>
-        <label className="block mb-2 text-white font-medium">
+        <label className="block mb-2 text-black font-medium">
           Default Donation Amount
         </label>
         <input
@@ -349,7 +349,7 @@ const Settings = () => {
         />
       </div>
       <div>
-        <label className="block mb-2 text-white font-medium">
+        <label className="block mb-2 text-black font-medium">
           Currency
         </label>
         <select className="w-full p-2 border rounded-lg" name="currency">
@@ -368,8 +368,8 @@ const Settings = () => {
   </div>
 )}
 {activeTab === "notifications" && (
-  <div className="bg-blue-400 p-4 sm:p-6 rounded-lg shadow-lg">
-    <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-white">
+  <div className=" p-4 sm:p-6 rounded-lg shadow-lg">
+    <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-black">
       Notification Settings
     </h2>
     <form className="space-y-4">
@@ -379,7 +379,7 @@ const Settings = () => {
           id="email_notifications"
           className="mr-2"
         />
-        <label htmlFor="email_notifications" className="text-white">
+        <label htmlFor="email_notifications" className="text-black">
           Email Notifications
         </label>
       </div>
@@ -389,7 +389,7 @@ const Settings = () => {
           id="sms_notifications"
           className="mr-2"
         />
-        <label htmlFor="sms_notifications" className="text-white">
+        <label htmlFor="sms_notifications" className="text-black">
           SMS Notifications
         </label>
       </div>
@@ -403,7 +403,7 @@ const Settings = () => {
   </div>
 )}
            {activeTab === "progress" && (
-  <div className="bg-blue-400 p-4 sm:p-6 rounded-lg shadow-lg p-10">
+  <div className=" p-4 sm:p-6 rounded-lg shadow-lg p-10">
     <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-white">
       Campaign Progress
     </h2>
