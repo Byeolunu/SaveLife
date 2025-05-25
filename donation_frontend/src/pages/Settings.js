@@ -106,22 +106,21 @@ const Settings = () => {
           ))}
         </div>
 
-        {/* User: Only profile tab */}
         {userType === "user" && activeTab === "profile" && (
           <div className="p-4 sm:p-6 rounded-lg shadow-lg">
-            <div className="bg-blue-400 p-4 sm:p-6 rounded-lg shadow-lg">
-              <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-white">
+            <div className=" p-4 sm:p-6 rounded-lg shadow-lg">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-black">
                 User Profile
               </h2>
               {message && (
-                <div className="mb-4 text-white font-bold">{message}</div>
+                <div className="mb-4 text-black font-bold">{message}</div>
               )}
               <form
                 className="space-y-4 sm:space-y-6"
                 onSubmit={handleProfileSave}
               >
                 <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                     Username
                   </label>
                   <input
@@ -130,12 +129,12 @@ const Settings = () => {
                     value={formData.username}
                     onChange={handleInputChange}
                     className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                    placeholder="Enter username"
+                    placeholder={`Change your username (${username})`}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                     Email
                   </label>
                   <input
@@ -149,7 +148,7 @@ const Settings = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                     Password (leave blank to keep current)
                   </label>
                   <input
@@ -162,7 +161,7 @@ const Settings = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                     First Name
                   </label>
                   <input
@@ -175,7 +174,7 @@ const Settings = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                     Last Name
                   </label>
                   <input
@@ -188,7 +187,7 @@ const Settings = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                     Phone Number
                   </label>
                   <input
@@ -201,7 +200,7 @@ const Settings = () => {
                   />
                 </div>
                 <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                     Address
                   </label>
                   <input
@@ -215,7 +214,7 @@ const Settings = () => {
                 </div>
                 <button
                   type="submit"
-                  className="bg-white text-blue-400 px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-md hover:bg-blue-100 transition-all duration-300 w-full sm:w-auto"
+                  className="bg-pink-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-md hover:bg-blue-100 transition-all duration-300 w-full sm:w-auto"
                 >
                   Save Changes
                 </button>
@@ -228,19 +227,19 @@ const Settings = () => {
           <>
             {activeTab === "profile" && (
               <div className="p-4 sm:p-6 rounded-lg shadow-lg">
-                <div className="bg-blue-400 p-4 sm:p-6 rounded-lg shadow-lg">
-                  <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-white">
+                <div className=" p-4 sm:p-6 rounded-lg shadow-lg">
+                  <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-black">
                     Organization Profile
                   </h2>
                   {message && (
-                    <div className="mb-4 text-white font-bold">{message}</div>
+                    <div className="mb-4 text-black font-bold">{message}</div>
                   )}
                   <form
                     className="space-y-4 sm:space-y-6"
                     onSubmit={handleProfileSave}
                   >
                     <div>
-                      <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                      <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                         Organization Name
                       </label>
                       <input
@@ -254,7 +253,7 @@ const Settings = () => {
                       />
                     </div>
                     <div>
-                      <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                      <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                         Email
                       </label>
                       <input
@@ -268,7 +267,7 @@ const Settings = () => {
                       />
                     </div>
                     <div>
-                      <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                      <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                         Password (leave blank to keep current)
                       </label>
                       <input
@@ -281,7 +280,7 @@ const Settings = () => {
                       />
                     </div>
                     <div>
-                      <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                      <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                         Description
                       </label>
                       <input
@@ -295,7 +294,7 @@ const Settings = () => {
                     </div>
                     
                     <div>
-                      <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                      <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                         Phone Number
                       </label>
                       <input
@@ -308,7 +307,7 @@ const Settings = () => {
                       />
                     </div>
                     <div>
-                      <label className="block mb-2 text-sm sm:text-base font-medium text-white">
+                      <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
                         Address
                       </label>
                       <input
@@ -322,7 +321,7 @@ const Settings = () => {
                     </div>
                     <button
                       type="submit"
-                      className="bg-white text-blue-400 px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-md hover:bg-blue-100 transition-all duration-300 w-full sm:w-auto"
+                      className="bg-pink-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-md hover:bg-blue-100 transition-all duration-300 w-full sm:w-auto"
                     >
                       Save Changes
                     </button>
@@ -404,7 +403,7 @@ const Settings = () => {
 )}
            {activeTab === "progress" && (
   <div className=" p-4 sm:p-6 rounded-lg shadow-lg p-10">
-    <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-white">
+    <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-black">
       Campaign Progress
     </h2>
     <div className="overflow-x-auto">

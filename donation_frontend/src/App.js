@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './services/auth';
 import PrivateRoute from './components/Auth/PrivateRoute';
@@ -7,7 +6,6 @@ import Header from './components/Layout/Header';
 import HomePage from './pages/HomePage';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
-import AnonymousPage from './pages/InspiringStories';
 import DonateNowPage from './pages/DonateNowPage';
 import ForgotPassword from './components/Auth/ForgotPassword';
 import ResetPassword from './components/Auth/ResetPassword';

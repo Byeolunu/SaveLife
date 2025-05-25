@@ -37,9 +37,9 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white p-6 rounded shadow-md">
-        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center text-blue-700">Login</h2>
         {error && <p className="text-red-500 text-center">{error}</p>}
         {success && <p className="text-green-500 text-center">Login successful!</p>}
         <form onSubmit={handleSubmit}>
@@ -72,7 +72,7 @@ const Login = () => {
             />
           </div>
           <div className="flex justify-between items-center mb-4">
-            <Link to="/forgot-password"><p className="text-sm text-gray-600">Forgot Password?</p></Link>
+            <Link to="/forgot-password"><p className="text-sm text-gray-600 underline hover:text-pink-400 ">Forgot Password?</p></Link>
             <Link to="/register">
               <button className="bg-blue-400 px-4 py-2 rounded text-white hover:text-blue-500 hover:bg-white">
                 Sign Up

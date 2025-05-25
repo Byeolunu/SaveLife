@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import api from '../../services/api';
-
+import logo from '../../assets/images/logo.png'; 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,13 +12,15 @@ const Header = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    useEffect(() => {
+    useEffect(() =>
+    {
         const checkAuthStatus = async () => {
             try {
                 const response = await api.get('http://localhost:8000/api/profile/');
                 if (response.status === 200) {
                     setIsLoggedIn(true);
                 }
+
             } catch (error) {
                 setIsLoggedIn(false);
             }
@@ -53,11 +55,11 @@ const Header = () => {
         >
             <header className="bg-white shadow-md p-5">
                 <div className="container mx-auto flex items-center p-4">
-                    {/* Logo */}
-                    <div className="logo text-2xl font-bold text-blue-600 mr-8">
-                        <Link to="/">SaveLife</Link>
+                    <div className="logo text-2xl font-bold text-blue-600 mr-8 flex flex-cols items-center">
+                        <Link to="/">
+                        <img src={logo} alt="SaveLife" style={{ width: "60px", height: "auto" }} />
+                        </Link> <span className='text-blue-600'>SaveLife</span>
                     </div>
-                    {/* Centered nav links */}
                     <nav className="hidden md:flex flex-1 justify-center space-x-6 items-center text-lg">
                         <Link to="/" className="text-gray-700 hover:text-blue-600">Home</Link>
                         <Link to="/inspiring-stories/1" className="text-gray-700 hover:text-blue-600">Stories</Link>

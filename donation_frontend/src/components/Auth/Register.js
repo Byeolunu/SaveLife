@@ -31,11 +31,11 @@ const Register = () => {
         setError('');
         setSuccess(false);
         if (formData.password !== formData.confirmPassword) {
-            setError('Les mots de passe ne correspondent pas.');
+            setError('Passwords do not match.');
             return;
         }
         if (!formData.user_type) {
-            setError('Veuillez sélectionner un type d’utilisateur.');
+            setError('Please select a user type.');
             return;
         }
 
@@ -57,7 +57,6 @@ const Register = () => {
                     user_type: '',
                 });
 
-                
                 setTimeout(() => {
                     window.location.href = `/?user=${encodeURIComponent(formData.email)}`;
                 }, 2000);
@@ -66,7 +65,7 @@ const Register = () => {
             if (err.response && err.response.data && err.response.data.detail) {
                 setError(err.response.data.detail);
             } else {
-                setError('Une erreur est survenue lors de l’inscription.');
+                setError('An error occurred during registration.');
             }
             console.error(err);
         }
@@ -82,18 +81,18 @@ const Register = () => {
             transition={{ duration: 0.5 }}
         >
             <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-8">
-                <h2 className="text-2xl font-bold text-center text-blue-500 mb-6">Inscription</h2>
+                <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">Register</h2>
                 {error && <p className="text-red-500 text-center mb-4">{error}</p>}
                 {success && (
                     <p className="text-green-500 text-center mb-4">
-                        Inscription réussie ! Redirection vers la page d’accueil...
+                        Registration successful! Redirecting to the home page...
                     </p>
                 )}
                 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label htmlFor="username" className="block text-gray-700 font-medium mb-1">
-                            Nom d'utilisateur
+                            Username
                         </label>
                         <input
                             type="text"
@@ -102,7 +101,7 @@ const Register = () => {
                             value={formData.username}
                             onChange={handleChange}
                             className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Entrez votre nom d'utilisateur"
+                            placeholder="Enter your username"
                             required
                         />
                     </div>
@@ -117,13 +116,13 @@ const Register = () => {
                             value={formData.email}
                             onChange={handleChange}
                             className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Entrez votre email"
+                            placeholder="Enter your email"
                             required
                         />
                     </div>
                     <div>
                         <label htmlFor="password" className="block text-gray-700 font-medium mb-1">
-                            Mot de passe
+                            Password
                         </label>
                         <input
                             type="password"
@@ -132,13 +131,13 @@ const Register = () => {
                             value={formData.password}
                             onChange={handleChange}
                             className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Entrez votre mot de passe"
+                            placeholder="Enter your password"
                             required
                         />
                     </div>
                     <div>
                         <label htmlFor="confirmPassword" className="block text-gray-700 font-medium mb-1">
-                            Confirmer le mot de passe
+                            Confirm password
                         </label>
                         <input
                             type="password"
@@ -147,13 +146,13 @@ const Register = () => {
                             value={formData.confirmPassword}
                             onChange={handleChange}
                             className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Confirmez votre mot de passe"
+                            placeholder="Confirm your password"
                             required
                         />
                     </div>
                     <div>
                         <label htmlFor="user_type" className="block text-gray-700 font-medium mb-1">
-                            Type d'utilisateur
+                            User type
                         </label>
                         <select
                             id="user_type"
@@ -163,26 +162,26 @@ const Register = () => {
                             className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             required
                         >
-                            <option value="">-- Sélectionnez un type --</option>
-                            <option value="user">Utilisateur</option>
-                            <option value="org">Organisation</option>
+                            <option value="">-- Select a type --</option>
+                            <option value="user">User</option>
+                            <option value="org">Organization</option>
                         </select>
                     </div>
                     <button
                         type="submit"
                         className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
                     >
-                        S'inscrire
+                        Register
                     </button>
                 </form>
-                {/* </motion.div> */}
                 <p className="text-center text-gray-600 mt-4">
-                    Déjà un compte ?{' '}
+                    Already have an account?{' '}
                     <Link to="/login" className="text-blue-500 hover:underline">
-                        Connectez-vous
+                        Log in
                     </Link>
                 </p>
             </div>
+
         </motion.div>
     );
 };

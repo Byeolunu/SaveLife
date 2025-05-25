@@ -20,7 +20,9 @@ const HomePage = () => {
       try {
         const response = await api.get('campaigns/');
         setCauses(response.data);
-      } catch (error) {
+      } 
+      catch (error) 
+      {
         console.error('Error fetching campaigns:', error);
       }
     };
@@ -54,11 +56,11 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-white ">
       <motion.header
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.8 }}
-  className="bg-white shadow-md"
->
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="bg-white shadow-md"
+      >
       <div className="w-full min-h-screen bg-gray-100">
       <section
         className="relative h-screen bg-cover bg-center flex items-center justify-between px-4 md:px-16 text-white"

@@ -30,15 +30,15 @@ const FAQPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <motion.header
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
   transition={{ duration: 0.8 }}
-  className="bg-white shadow-md"
+  className="bg-white "
 >
       <div className="w-full h-auto  py-10">
-        <h1 className="text-center text-blue-400 text-4xl font-bold">Frequently Asked Questions</h1>
+        <h1 className="text-center text-blue-600 text-6xl font-bold">Frequently Asked Questions</h1>
       </div>
       <div className="max-w-4xl mx-auto py-12 px-4">
         <div className="space-y-6">
