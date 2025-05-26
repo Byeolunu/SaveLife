@@ -76,6 +76,8 @@ const Settings = () => {
     } catch (err) 
     {
       alert("Failed to update profile.");
+      console.error(err.response?.data); // Affiche le détail de l’erreur dans la console
+
     }
   };
 
@@ -108,120 +110,96 @@ const Settings = () => {
 
         {userType === "user" && activeTab === "profile" && (
           <div className="p-4 sm:p-6 rounded-lg shadow-lg">
-            <div className=" p-4 sm:p-6 rounded-lg shadow-lg">
-              <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-black">
-                User Profile
-              </h2>
-              {message && (
-                <div className="mb-4 text-black font-bold">{message}</div>
-              )}
-              <form
-                className="space-y-4 sm:space-y-6"
-                onSubmit={handleProfileSave}
-              >
-                <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
-                    Username
-                  </label>
-                  <input
-                    type="text"
-                    name="username"
-                    value={formData.username}
-                    onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                    placeholder={`Change your username (${username})`}
-                    required
-                  />
+                <div className=" p-4 sm:p-6 rounded-lg shadow-lg">
+                  <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-black">
+                    User Profile
+                  </h2>
+                  {message && (
+                    <div className="mb-4 text-black font-bold">{message}</div>
+                  )}
+                  <form
+                    className="space-y-4 sm:space-y-6"
+                    onSubmit={handleProfileSave}
+                  >
+                    <div>
+                      <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
+                        UserName
+                      </label>
+                      <input
+                        type="text"
+                        name="username"
+                        value={formData.username}
+                        onChange={handleInputChange}
+                        className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+                        placeholder="Enter username"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+                        placeholder="Enter email"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
+                        Password (leave blank to keep current)
+                      </label>
+                      <input
+                        type="password"
+                        name="password"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                        className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+                        placeholder="Enter new password"
+                      />
+                    </div>
+                    
+                    
+                    <div>
+                      <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
+                        Phone Number
+                      </label>
+                      <input
+                        type="text"
+                        name="phone_number"
+                        value={formData.phone_number}
+                        onChange={handleInputChange}
+                        className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+                        placeholder="Enter phone number"
+                      />
+                    </div>
+                    <div>
+                      <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
+                        Address
+                      </label>
+                      <input
+                        type="text"
+                        name="address"
+                        value={formData.address}
+                        onChange={handleInputChange}
+                        className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
+                        placeholder="Enter address"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="bg-pink-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-md hover:bg-blue-100 transition-all duration-300 w-full sm:w-auto"
+                    >
+                      Save Changes
+                    </button>
+                  </form>
                 </div>
-                <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                    placeholder="Enter email"
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
-                    Password (leave blank to keep current)
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                    placeholder="Enter new password"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    name="first_name"
-                    value={formData.first_name}
-                    onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                    placeholder={"Enter first name"}
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    name="last_name"
-                    value={formData.last_name}
-                    onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                    placeholder="Enter last name"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
-                    Phone Number
-                  </label>
-                  <input
-                    type="text"
-                    name="phone_number"
-                    value={formData.phone_number}
-                    onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                    placeholder="Enter phone number"
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 text-sm sm:text-base font-medium text-gray-700">
-                    Address
-                  </label>
-                  <input
-                    type="text"
-                    name="address"
-                    value={formData.address}
-                    onChange={handleInputChange}
-                    className="w-full p-2 sm:p-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                    placeholder="Enter address"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="bg-pink-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-md hover:bg-blue-100 transition-all duration-300 w-full sm:w-auto"
-                >
-                  Save Changes
-                </button>
-              </form>
-            </div>
-          </div>
-        )}
+              </div>
+            )}
 
         {userType === 'org' && (
           <>

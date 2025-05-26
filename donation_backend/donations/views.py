@@ -1,19 +1,19 @@
-from rest_framework import generics, permissions, status, viewsets
+from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view
 from .models import User, Campaign, Donation
 from .serializers import UserSerializer, CustomTokenObtainPairSerializer, CampaignSerializer, DonationSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import get_user_model
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import ContactSubmission,Profile,InspiringStories,NewsletterSubscription
-from .serializers import ContactSerializer,StoriesSerializer,NewsletterSubscriptionSerializer
+from .models import Profile,InspiringStories,NewsletterSubscription
+from .serializers import StoriesSerializer,NewsletterSubscriptionSerializer
 from django.contrib.auth.hashers import make_password, check_password
 from rest_framework import serializers
-from rest_framework.permissions import AllowAny,IsAuthenticatedOrReadOnly,IsAuthenticated
-from rest_framework.generics import ListAPIView, CreateAPIView
+from rest_framework.permissions import AllowAny,IsAuthenticatedOrReadOnly
+from rest_framework.generics import ListAPIView
 from django.utils.crypto import get_random_string
 from django.http import HttpResponse
 

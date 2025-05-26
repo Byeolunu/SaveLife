@@ -1,17 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import api from '../services/api';
 import { ClipLoader } from 'react-spinners';
-import { motion, useInView } from 'framer-motion';
+import { motion} from 'framer-motion';
 import { IoIosAddCircleOutline } from "react-icons/io";
 
 const InspiringStories = () => {
-  const causeRef = useRef(null);
   const formRef = useRef(null);
-  const isInView = useInView(causeRef, { once: true });
   const { id } = useParams();
   const navigate = useNavigate();
-
   const [showAddForm, setShowAddForm] = useState(false);
   const [story, setStory] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -168,7 +165,7 @@ const InspiringStories = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <ClipLoader color={"yellow"} loading={loading} size={150} />
+        <ClipLoader color={"pink"} loading={loading} size={150} />
       </div>
     );
   }

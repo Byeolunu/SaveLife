@@ -1,8 +1,3 @@
-import React from 'react';
-import facebookIcon from '../../assets/images/facebook-icon.png';
-import Xlogo from '../../assets/images/Xlogo.png';
-import instagramIcon from '../../assets/images/instagram-icon.png';
-import linkedinIcon from '../../assets/images/linkedin-icon.png';
 import { useNavigate } from 'react-router-dom';
 import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
