@@ -73,12 +73,9 @@ print(get_random_secret_key())
     cd donation_frontend
     npm start
 ```
-<<<<<<< HEAD
-=======
-
 
 ## Authentication Tokens
 
 - Access tokens and refresh tokens are dynamically generated during user login and securely stored in the browser's `localStorage`.
 - If you encounter issues with authentication, clear the tokens using the browser's Developer Tools and refresh the page.
->>>>>>> 2cc49e67fb08fcbcf60e5c5d5b6324bbad6819a3
+
