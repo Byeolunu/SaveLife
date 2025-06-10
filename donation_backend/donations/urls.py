@@ -4,7 +4,7 @@ from .views import (
     CampaignListView, CampaignDetailView, DonationListView, DonationDetailView,
     UserCampaignsView, UserListView, UserDeleteView, home_data, user_profile,
     logout_view, send_password_reset_email, ContactCreateAPIView,
-    NewsletterSubscriptionAPIView, reset_password, create_campaign,InspiringListView,InspiringStoriesDetailView, change_password,
+    NewsletterSubscriptionAPIView, reset_password, create_campaign,InspiringListView,InspiringStoriesDetailView, change_password,delete_campaign
     
 )
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
@@ -39,6 +39,8 @@ urlpatterns = [
     path('newsletter/subscribe/', NewsletterSubscriptionAPIView.as_view(), name='newsletter-subscribe'),
     path('inspiring-stories/<int:pk>/',InspiringStoriesDetailView.as_view(),name='inspiring-stories-detail'),
     path('inspiring-stories/', InspiringListView.as_view(), name='inspiring-stories-list'),
+    path('campaigns/<int:pk>/delete/', delete_campaign, name='delete-campaign'),
+
 ]
 
 if settings.DEBUG:

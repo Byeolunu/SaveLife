@@ -272,8 +272,20 @@ def change_password(request):
     user.save()
     return Response({'message': 'Password updated successfully.'}, status=status.HTTP_200_OK)
 
+@api_view(['DELETE'])
+def delete_campaign(request, pk):
+    try:
+        campaign = Campaign.objects.get(pk=pk)
+        if campaign.created_by != request.user:
+            return Response({"error": "You can only delete your own campaigns."}, status=status.HTTP_403_FORBIDDEN)
+        
+        campaign.delete()
+        return Response({"message": "Campaign deleted successfully."}, status=status.HTTP_200_OK)
+    except Campaign.DoesNotExist:
+        return Response({"error": "Campaign not found."}, status=status.HTTP_404_NOT_FOUND)
 
-    
+
+
 
 
 

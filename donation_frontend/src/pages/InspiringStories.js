@@ -118,7 +118,7 @@ const InspiringStories = () => {
         },
       });
       if (response.status === 201) {
-        setSuccessMessage('Story created successfully!');
+        alert('Story created successfully!');
         setNewStory({ name: '', description: '', image: null });
         setShowAddForm(false);
       }

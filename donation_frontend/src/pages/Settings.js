@@ -40,7 +40,7 @@ const Settings = () => {
     userType === 'org'
       ? [
           { id: "profile", label: "Organization Profile", icon: <FaUser /> },
-          { id: "preferences", label: "Donation Preferences", icon: <FaCog /> },
+         
           { id: "notifications", label: "Notifications", icon: <FaBell /> },
           { id: "progress", label: "Campaign Progress", icon: <FaChartBar /> },
         ]
@@ -307,43 +307,7 @@ const Settings = () => {
                 </div>
               </div>
             )}
-            {activeTab === "preferences" && (
-  <div className="p-4 sm:p-6 rounded-lg shadow-lg">
-    <h2 className="text-xl sm:text-2xl font-semibold  text-black mb-2">
-      Donation Preferences
-    </h2>
-    <form className="space-y-4">
-      <div>
-        <label className="block mb-2 text-black font-medium">
-          Default Donation Amount
-        </label>
-        <input
-          type="number"
-          name="default_donation"
-          min="1"
-          className="w-full p-2 border rounded-lg"
-          placeholder="Enter default amount"
-        />
-      </div>
-      <div>
-        <label className="block mb-2 text-black font-medium">
-          Currency
-        </label>
-        <select className="w-full p-2 border rounded-lg" name="currency">
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="MAD">MAD</option>
-        </select>
-      </div>
-      <button
-        type="submit"
-        className="bg-white text-blue-400 px-4 py-2 rounded-lg shadow-md hover:bg-blue-100 transition-all duration-300"
-      >
-        Save Preferences
-      </button>
-    </form>
-  </div>
-)}
+            
 {activeTab === "notifications" && (
   <div className=" p-4 sm:p-6 rounded-lg shadow-lg">
     <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-black">

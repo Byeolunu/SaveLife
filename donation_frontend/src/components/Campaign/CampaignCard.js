@@ -1,19 +1,38 @@
-import React from 'react';
 import ProgressBar from '../UI/ProgressBar';
 import api from '../../services/api';
 import { formatDate } from '../../utils/helpers';
 
-const CampaignCard = ({ campaign, onSelect, isOwner, onUpdate, userType }) => {
+const CampaignCard = ({ campaign, onSelect, isOwner,  userType }) => {
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this campaign?')) {
       try {
-        await api(`campaigns/${campaign.id}/delete/`);
-        onUpdate();
+        await api.delete(`campaigns/${campaign.id}/delete/`);
+        alert('Campaign deleted successfully! Refresh the page to see changes.');
       } catch (error) {
         console.error('Error deleting campaign:', error);
+        alert('ERROR');
       }
     }
   };
+
+  const handleUpdate = async () => {
+    const updatedData = {
+      title: prompt('Enter new title:', campaign.title),
+      description: prompt('Enter new description:', campaign.description),
+      goal: parseInt(prompt('Enter new goal:', campaign.goal), 10),
+      start_date: campaign.start_date,
+      ends_date: campaign.ends_date,
+    };
+
+    try {
+      await api.put(`campaigns/${campaign.id}/`, updatedData);
+      alert('Campaign updated successfully! Refresh the page to see changes.');
+    } catch (error) {
+      console.error('Error updating campaign:', error.response?.data || error.message);
+      alert('Failed to update the campaign. Please try again.');
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col h-full">
       {campaign.image && (
@@ -31,8 +50,8 @@ const CampaignCard = ({ campaign, onSelect, isOwner, onUpdate, userType }) => {
           <div className="mb-4">
             <ProgressBar progress={Math.min((campaign.current_amount / campaign.goal) * 100, 100)} />
             <div className="flex justify-between text-sm text-gray-600 mt-1">
-              <span>${campaign.current_amount} raised</span>
-              <span>${campaign.goal} goal</span>
+              <span>{campaign.current_amount} DH raised</span>
+              <span>{campaign.goal} DH goal</span>
             </div>
           </div>
           <div className="text-sm text-gray-500 mb-4">
@@ -53,7 +72,7 @@ const CampaignCard = ({ campaign, onSelect, isOwner, onUpdate, userType }) => {
           {isOwner && (
             <>
               <button
-                onClick={() => onSelect(campaign)}
+                onClick={handleUpdate}
                 className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 flex-1"
               >
                 Edit
@@ -71,4 +90,5 @@ const CampaignCard = ({ campaign, onSelect, isOwner, onUpdate, userType }) => {
     </div>
   );
 };
+
 export default CampaignCard;

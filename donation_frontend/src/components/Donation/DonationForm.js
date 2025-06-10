@@ -29,14 +29,14 @@ const DonationForm = ({ campaign, onSubmit, onCancel }) => {
         <h3 className="text-lg font-medium mb-2">{campaign.title}</h3>
         <ProgressBar progress={progress} />
         <div className="flex justify-between text-sm text-gray-600 mt-1">
-          <span>${campaign.current_amount} raised</span>
-          <span>${campaign.goal} goal</span>
+          <span>{campaign.current_amount} DH raised</span>
+          <span>{campaign.goal} DH goal</span>
         </div>
       </div>
       
       <div className="mb-4">
         <label className="block text-gray-700 mb-2" htmlFor="amount">
-          Amount ($)
+          Amount (DH)
         </label>
         <input
           type="number"

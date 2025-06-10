@@ -44,7 +44,7 @@ const AddCampaign = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-      setMessage('Campaign created successfully!');
+      alert('Campaign created successfully!');
       console.log('Response:', response.data);
       setFormData({
         title: '',
@@ -69,7 +69,7 @@ const AddCampaign = () => {
       className="shadow-md"
     >
       <h1 className="text-2xl font-bold mb-4">Create a New Campaign</h1>
-      {message && <p className="mb-4 text-center text-red-500">{message}</p>}
+      {message && <p className="mb-4 text-center text-green-500">{message}</p>}
       <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">

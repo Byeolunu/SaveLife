@@ -1,6 +1,6 @@
 import CampaignCard from './CampaignCard';
 
-const CampaignList = ({ campaigns, onSelectCampaign, isOwner, onUpdate, userType }) => {
+const CampaignList = ({ campaigns, onSelectCampaign, isOwner, userType }) => {
   if (campaigns.length === 0) {
     return <div className="text-gray-500">No campaigns found.</div>;
   }
@@ -13,7 +13,6 @@ const CampaignList = ({ campaigns, onSelectCampaign, isOwner, onUpdate, userType
           campaign={campaign}
           onSelect={onSelectCampaign}
           isOwner={typeof isOwner === 'function' ? isOwner(campaign) : isOwner}
-          onUpdate={onUpdate}
           userType={userType}
         />
       ))}
