@@ -1,5 +1,38 @@
 # SaveLife Project
 
+SaveLife is a web application designed to empower individuals and organizations to create, manage, and contribute to campaigns aimed at making a positive impact in the world. Whether it's raising funds for disaster relief, supporting education initiatives, or helping communities access clean water, SaveLife provides a platform to connect donors with meaningful causes.
+
+### **Features**
+- **Campaign Management**: Users can create and manage campaigns with detailed descriptions, goals, and images.
+- **Donation System**: Donors can contribute to campaigns securely and track progress toward goals.
+- **User Profiles**: Personalized profiles for individuals and organizations to manage their activities.
+- **Inspiring Stories**: A section dedicated to showcasing impactful stories that inspire action.
+- **Authentication**: Secure login and registration system with JWT-based authentication.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Frontend**: Built with React and TailwindCSS for a modern and responsive user interface.
+- **Backend**: Powered by Django REST Framework for robust API functionality.
+
+### **Technologies Used**
+- **Frontend**: React, TailwindCSS, Axios, Framer Motion
+- **Backend**: Django, Django REST Framework, SimpleJWT
+- **Database**: SQLite (development), configurable for production databases
+- **Version Control**: Git and GitHub
+
+### **Purpose**
+SaveLife aims to simplify the process of fundraising and connecting donors with causes that matter. By providing a user-friendly interface and secure backend, SaveLife ensures transparency and trust in the donation process.
+
+### **How It Works**
+1. **Organizations**: Create campaigns with detailed descriptions, goals, and images.
+2. **Donors**: Browse campaigns, read inspiring stories, and contribute to causes.
+3. **Progress Tracking**: Monitor campaign progress and celebrate milestones.
+4. **Stories**: Share impactful stories to inspire others to take action.
+
+### **Contributing**
+We welcome contributions to improve SaveLife! Feel free to fork the repository, create pull requests, or report issues.
+
+### **License**
+This project is licensed under the MIT License. See the LICENSE file for details.
+
 <<<<<<< HEAD
 =======
 SaveLife is a web application designed to empower individuals and organizations to create, manage, and contribute to campaigns aimed at making a positive impact in the world. Whether it's raising funds for disaster relief, supporting education initiatives, or helping communities access clean water, SaveLife provides a platform to connect donors with meaningful causes.
